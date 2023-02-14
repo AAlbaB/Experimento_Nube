@@ -15,13 +15,18 @@ jobs:
         python-version: [ 3.9 ]
     steps:
       - uses: actions/checkout@v1
-      - name: Install environment
-        working-directory: ./component1
+      - name: Run Tests Users
+        working-directory: ./usuarios
+        env:
+          DATABASE_URL: sqlite:///trayectos.db
         run: |
-          pip install pipenv
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          coverage run -m unittest tests/* -v
+          coverage report --fail-under=80
           pipenv sync --system --dev
           export VIRTUAL_ENV="$(pipenv --venv)" PATH="$(pipenv --venv)/bin:$PATH"
-      - name: Run unit tests
-        working-directory: ./component1
-        run: |
-          pytest --cov=src -v -s --cov-fail-under=80
+#      - name: Run unit tests
+#        working-directory: ./component1
+#        run: |
+#          pytest --cov=src -v -s --cov-fail-under=80
