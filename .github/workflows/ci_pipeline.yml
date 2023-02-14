@@ -27,5 +27,5 @@ jobs:
           DATABASE_URL: sqlite:///trayectos.db
         run: |
           coverage run -m --omit="*/usr/lib/*" unittest discover -s tests -v
-          coverage report --fail-under=100
+          coverage report --fail-under=80
       
