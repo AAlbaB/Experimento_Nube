@@ -20,9 +20,8 @@ jobs:
         env:
           DATABASE_URL: sqlite:///users.db
         run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
           pip install -r requirements.txt
-          pip install pipenv
           coverage run -m unittest tests/test_users.py -v
-          pipenv sync --system --dev
-          export VIRTUAL_ENV="$(pipenv --venv)" PATH="$(pipenv --venv)/bin:$PATH"
-          pytest --cov=src -v -s --cov-fail-under=80
+          coverage report --fail-under=80
