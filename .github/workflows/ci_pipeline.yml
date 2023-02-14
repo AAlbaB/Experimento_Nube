@@ -24,8 +24,8 @@ jobs:
           pip install -r requirements.txt
           coverage run -m unittest tests/test_users.py -v
           coverage report --fail-under=80
-          pipenv sync --system --dev
-          export VIRTUAL_ENV="$(pipenv --venv)" PATH="$(pipenv --venv)/bin:$PATH"
+#          pipenv sync --system --dev
+#          export VIRTUAL_ENV="$(pipenv --venv)" PATH="$(pipenv --venv)/bin:$PATH"
 #      - name: Run unit tests
 #        working-directory: ./component1
 #        run: |
