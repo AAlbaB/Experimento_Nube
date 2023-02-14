@@ -20,8 +20,6 @@ jobs:
         env:
           DATABASE_URL: sqlite:///users.db
         run: |
-          python3 -m venv .venv
-          source .venv/bin/activate
           pip install -r requirements.txt
-          coverage run -m unittest tests/test_users.py -v
+          coverage run -m --omit="*/usr/lib/*" unittest discover -s tests -v
           coverage report --fail-under=80
