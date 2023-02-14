@@ -1,6 +1,4 @@
-# Ejemplo de github action para probar python
-# Docs: https://docs.github.com/es/actions/using-workflows/workflow-syntax-for-github-actions
-name: Example CI
+name: PipeLine Integración
 
 on:
   push:
@@ -15,7 +13,7 @@ jobs:
         python-version: [ 3.9 ]
     steps:
       - uses: actions/checkout@v1
-      - name: Run Tests Users
+      - name: Run Tests Usuarios
         working-directory: ./usuarios
         env:
           DATABASE_URL: sqlite:///users.db
@@ -23,3 +21,12 @@ jobs:
           pip install -r requirements.txt
           coverage run -m --omit="*/usr/lib/*" unittest discover -s tests -v
           coverage report --fail-under=80
+      - name: Run Tests Trayectos
+        working-directory: ./trayectos
+        env:
+          DATABASE_URL: sqlite:///trayectos.db
+        run: |
+          pip install -r requirements.txt
+          coverage run -m --omit="*/usr/lib/*" unittest discover -s tests -v
+          coverage report --fail-under=80
+      
