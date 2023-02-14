@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  trayectos_db:
+    container_name: trayectos_db            
+    image: postgres:latest
+    restart: always                     
+    volumes:
+      - './postgres_trayectos:/var/lib/postgresql/data'  
+    ports:                               
+      - 5435:5432                       
+    environment:                        
+      POSTGRES_USER: postgres          
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: appnube
+    networks:
+      - users_network
+
+  trayectos_app:
+    image: trayectos
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3002:3002
+    environment:
+      - DATABASE_URL=postgresql://postgres:admin@trayectos_db:5432/appnube
+    depends_on:
+      - trayectos_db
+    networks:
+      - trayectos_network
+
+networks:
+  trayectos_network:
+    driver: bridge

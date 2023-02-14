@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "0b61222e-fc71-4398-9a03-7ec6d78d244c",
+		"name": "Grupo_18 Trayecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24011914"
+	},
+	"item": [
+		{
+			"name": "CrearTrayecto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NjI0MTY4MiwianRpIjoiOTNhN2ViMjktZThkYy00ZWU3LWEzNzAtYWM4NzAwNDI1OTM3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc2MjQxNjgyLCJleHAiOjE2NzYyNDI1ODJ9.iqovGU_aZh5RqZgwQafkcUncyJn2NP3ocLtJzbwNhlI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sourceAirportCode\": \"TYS\", \r\n    \"sourceCountry\": \"Medellin\", \r\n    \"destinyAirportCode\": \"LMN\", \r\n    \"destinyCountry\": \"Cali\", \r\n    \"bagCost\": \"100000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/routes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"routes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"AndresAlba\",\r\n    \"password\": \"PassBien1418\",\r\n    \"email\": \"Correitodeprueba@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 00:18:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdAt\": \"2023-02-07T19:18:34.914407\"\n}"
+				}
+			]
+		},
+		{
+			"name": "BuscarTrayectos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NjIzMjEwNywianRpIjoiNWVjMjkxY2ItOWIwMy00YzU0LThjNjctY2UyNTExMzYzNWYzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc2MjMyMTA3LCJleHAiOjE2NzYyMzMwMDd9.VoLdHmOLsICUAVrV-duhp8kyCBF_2OWELKcB8sk8aU8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/routes?from=TYS",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"routes"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "TYS"
+						},
+						{
+							"key": "to",
+							"value": "GHK",
+							"disabled": true
+						},
+						{
+							"key": "when",
+							"value": "13/02/2023",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:5000/users/auth",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"AndresAlba\",\r\n    \"password\": \"PassBien1418\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"auth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 02:01:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensaje\": \"Inicio de sesión exitoso\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NTgyMTY4NSwianRpIjoiOGEyY2JiNTAtNDAyYi00OTM5LWIwYmUtODU2M2RhMWEyODdjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc1ODIxNjg1LCJleHAiOjE2NzU4MjI1ODV9.KbV7iOfk6xhd_9C-j7nVyjrLoP-_MyJdKP87b708_kE\",\n    \"expireAt\": \"2023-02-07T21:16:25.935718\"\n}"
+				}
+			]
+		},
+		{
+			"name": "BuscarTrayecto",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NjI0MTY4MiwianRpIjoiOTNhN2ViMjktZThkYy00ZWU3LWEzNzAtYWM4NzAwNDI1OTM3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc2MjQxNjgyLCJleHAiOjE2NzYyNDI1ODJ9.iqovGU_aZh5RqZgwQafkcUncyJn2NP3ocLtJzbwNhlI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/routes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"routes",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 19:37:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"Correitodeprueba@mail.com\",\n    \"id\": 1,\n    \"username\": \"AndresAlba\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PingTrayecto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/routes/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"routes",
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PingUser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/ping",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 19:46:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "\"pong\""
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "42cc860a-13b3-4010-9bd6-1b11feda6113",
+		"name": "Grupo_18",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20261140"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"AndresAlba\",\r\n    \"password\": \"PassBien1418\",\r\n    \"email\": \"Correitodeprueba@mail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EndPoint_Users}}/users",
+					"host": [
+						"{{EndPoint_Users}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"AndresAlba\",\r\n    \"password\": \"PassBien1418\",\r\n    \"email\": \"Correitodeprueba@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 00:18:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdAt\": \"2023-02-07T19:18:34.914407\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"AndresAlba\",\r\n    \"password\": \"PassBien1418\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{EndPoint_Users}}/users/auth",
+					"host": [
+						"{{EndPoint_Users}}"
+					],
+					"path": [
+						"users",
+						"auth"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"AndresAlba\",\r\n    \"password\": \"PassBien1418\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"auth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 02:01:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mensaje\": \"Inicio de sesión exitoso\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NTgyMTY4NSwianRpIjoiOGEyY2JiNTAtNDAyYi00OTM5LWIwYmUtODU2M2RhMWEyODdjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc1ODIxNjg1LCJleHAiOjE2NzU4MjI1ODV9.KbV7iOfk6xhd_9C-j7nVyjrLoP-_MyJdKP87b708_kE\",\n    \"expireAt\": \"2023-02-07T21:16:25.935718\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NjAwMDM0MywianRpIjoiMjA4Y2RlNzItOGM3OS00N2EzLTk4MjQtMWVhZWJlNTk3YjU2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjc2MDAwMzQzLCJleHAiOjE2NzYwMDEyNDN9.hAoYbAAF8KXlLCX46u2-TljnWeyqhfx1ZNhRTjFxQbw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{EndPoint_Users}}/users/me",
+					"host": [
+						"{{EndPoint_Users}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 19:37:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"Correitodeprueba@mail.com\",\n    \"id\": 1,\n    \"username\": \"AndresAlba\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PingUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{EndPoint_Users}}/users/ping",
+					"host": [
+						"{{EndPoint_Users}}"
+					],
+					"path": [
+						"users",
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PingUser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/ping",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.10.6"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Feb 2023 19:46:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "\"pong\""
+				}
+			]
+		}
+	]
+}

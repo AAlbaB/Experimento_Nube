@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  usuarios_db:
+    container_name: usuarios_db            
+    image: postgres:latest
+    restart: always                     
+    volumes:
+      - './postgres_data:/var/lib/postgresql/data'  
+    ports:                               
+      - 5433:5432                       
+    environment:                        
+      POSTGRES_USER: postgres          
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: appnube
+    networks:
+      - users_network
+
+  usuarios_app:
+    image: usuarios
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - DATABASE_URL=postgresql://postgres:admin@usuarios_db:5432/appnube
+    depends_on:
+      - usuarios_db
+    networks:
+      - users_network
+
+networks:
+  users_network:
+    driver: bridge
