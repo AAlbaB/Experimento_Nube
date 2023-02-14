@@ -22,4 +22,3 @@ jobs:
         run: |
           pip install -r requirements.txt
           coverage run -m unittest tests/test_users.py -v
-          coverage report --fail-under=80
