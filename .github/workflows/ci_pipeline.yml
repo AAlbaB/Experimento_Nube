@@ -26,7 +26,6 @@ jobs:
         env:
           DATABASE_URL: sqlite:///trayectos.db
         run: |
-          pip install -r requirements.txt
           coverage run -m --omit="*/usr/lib/*" unittest discover -s tests -v
-          coverage report --fail-under=80
+          coverage report --fail-under=100
       
